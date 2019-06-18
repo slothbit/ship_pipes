@@ -1,0 +1,16 @@
+resources:
+  - name: blah
+    type: params
+    versionTemplate:
+      params:
+        hello: world
+
+
+jobs:
+  - name: blahjob
+    type: runSh
+    steps:
+      - IN: blah
+      - TASK:
+          script:
+            - echo "Hello world -- $hello"
