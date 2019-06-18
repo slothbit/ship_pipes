@@ -4,6 +4,12 @@ resources:
     versionTemplate:
       params:
         hello: world
+  - name: simpleserver_repo
+    type: gitRepo
+    integration: github
+    sourceName: slothbit/simpleserver
+    versionTemplate:
+      versionName: master
 
 
 jobs:
@@ -11,6 +17,7 @@ jobs:
     type: runSh
     steps:
       - IN: blah
+      - IN: simpleserver_repo
       - TASK:
           script:
             - echo "Hello world -- $hello"
