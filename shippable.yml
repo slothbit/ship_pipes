@@ -4,11 +4,12 @@ resources:
     versionTemplate:
       params:
         hello: world
+
   - name: simpleserver_repo
     type: gitRepo
     integration: github
-    sourceName: slothbit/simpleserver
     versionTemplate:
+      sourceName: slothbit/simpleserver
       versionName: master
 
 
