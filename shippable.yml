@@ -12,6 +12,11 @@ resources:
       sourceName: slothbit/simpleserver
       versionName: master
 
+  - name: jfrog-cli
+    type: cliConfig
+    integration: artifacts
+
+
 
 jobs:
   - name: blahjob
@@ -19,6 +24,7 @@ jobs:
     steps:
       - IN: blah
       - IN: simpleserver_repo
+      - IN: jfrog-cli
       - TASK:
           script:
             - echo "Hello world -- $hello"
