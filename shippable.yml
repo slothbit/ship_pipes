@@ -16,6 +16,11 @@ resources:
     type: cliConfig
     integration: artifacts
 
+  - name: pipe-hook
+    type: webhook
+    versionTemplate:
+      webhookKey: Shippable!
+
 
 
 jobs:
@@ -25,6 +30,12 @@ jobs:
       - IN: blah
       - IN: simpleserver_repo
       - IN: jfrog-cli
+      - IN: pipe-hook
       - TASK:
           script:
             - echo "Hello world -- $hello"
+            - pushd $SIMPLESERVER_REPO_STATE
+            - ls -latr
+            - npm install
+            - ls -latr
+            - popd
